@@ -1,5 +1,4 @@
 import { Col, Row, Button } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector, useDispatch } from 'react-redux'
 
 const Favourites = () => {
@@ -28,7 +27,6 @@ const Favourites = () => {
                   })
                 }}
               >
-                <FontAwesomeIcon icon="fa-solid fa-trash" />
               </Button>
               {company.company_name}
             </li>
