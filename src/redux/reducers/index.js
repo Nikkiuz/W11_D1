@@ -25,8 +25,7 @@ const mainReducer = (state = initialState, action) => {
           content: state.companies.content.includes(action.payload)
             ? [...state.companies.content]
             : [...state.companies.content, action.payload],
-          // NON POTETE USARE PUSH (perchè modifica l'array di partenza e di fatto ROMPE la funzione pura!)
-          //   content: [...state.cart.content, action.payload]
+
         },
       }
 
