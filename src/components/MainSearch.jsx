@@ -32,11 +32,11 @@ const MainSearch = () => {
 
   return (
     <Container>
-      <FavIndicator />
       <Row>
         <Col xs={10} className="mx-auto my-3">
           <h1 className="display-1">Remote Jobs Search</h1>
         </Col>
+        <FavIndicator />
         <Col xs={10} className="mx-auto">
           <Form onSubmit={handleSubmit}>
             <Form.Control

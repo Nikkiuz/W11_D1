@@ -6,18 +6,19 @@ const Favourites = () => {
 
   // cardArray sarà l'array di libri nel carrello in Redux
   const favArray = useSelector((reduxState) => {
-    return reduxState.favourites.content
+    return reduxState.companies.content
   })
 
   // otteniamo la funzione di dispatch
   const dispatch = useDispatch()
-
+  console.log('array', favArray)
   return (
     <Row>
       <Col sm={12}>
         <ul style={{ listStyle: 'none' }}>
           {favArray.map((company, i) => (
             <li key={i} className="my-4">
+              <h2>{company}</h2>
               <Button
                 variant="danger"
                 onClick={() => {
@@ -27,13 +28,12 @@ const Favourites = () => {
                   })
                 }}
               >
+                Rimuovi dai preferiti
               </Button>
-              {company.company_name}
             </li>
           ))}
         </ul>
       </Col>
-      <Row></Row>
     </Row>
   )
 }
