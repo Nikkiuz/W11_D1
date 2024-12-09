@@ -22,7 +22,9 @@ const mainReducer = (state = initialState, action) => {
         companies: {
           ...state.companies,
           //   vado a ri-dichiarare "content" prestando attenzione a NON utilizzare metodi e tecniche che andrebbero ad alterare il valore di state, perchè in una funzione pura non si possono mutare i propri parametri
-          content: state.companies.content.concat(action.payload),
+          content: state.companies.content.includes(action.payload)
+            ? [...state.companies.content]
+            : [...state.companies.content, action.payload],
           // NON POTETE USARE PUSH (perchè modifica l'array di partenza e di fatto ROMPE la funzione pura!)
           //   content: [...state.cart.content, action.payload]
         },
