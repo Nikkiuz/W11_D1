@@ -1,10 +1,10 @@
-const initialState = {
-  companies: {
-    content: [],
-  },
-}
+import { ADD_TO_FAV, REMOVE_FROM_FAV } from "../actions"
 
-const mainReducer = (state = initialState, action) => {
+const initialState = {
+    content: [],
+  }
+
+const favReducer = (state = initialState, action) => {
   // mainReducer calcolerà lo stato nuovo
   // quindi ritornerà SEMPRE un oggetto, il nuovo stato dell'app
 
@@ -12,29 +12,23 @@ const mainReducer = (state = initialState, action) => {
 
   switch (action.type) {
     // qui inseriamo tutte le possibili casistiche
-    case 'ADD_TO_FAV':
+    case ADD_TO_FAV:
       // qui dentro fornisco istruzioni al mio reducer su COSA FARE
       // quando intercetta una action con type "ADD_TO_CART"
       return {
         // devo SEMPRE ritornare un oggetto, il nuovo stato dell'app
         ...state,
-        // andiamo a riscrivere la slice di nostro interesse
-        companies: {
-          ...state.companies,
           //   vado a ri-dichiarare "content" prestando attenzione a NON utilizzare metodi e tecniche che andrebbero ad alterare il valore di state, perchè in una funzione pura non si possono mutare i propri parametri
-          content: state.companies.content.includes(action.payload)
-            ? [...state.companies.content]
-            : [...state.companies.content, action.payload],
+          content: state.content.includes(action.payload)
+            ? [...state.content]
+            : [...state.content, action.payload],
 
-        },
-      }
+        }
 
-    case 'REMOVE_FROM_FAV':
+    case REMOVE_FROM_FAV:
       return {
         ...state,
-        companies: {
-          ...state.companies,
-          content: state.companies.content.filter((book, i) => {
+          content: state.content.filter((book, i) => {
             if (i === action.payload) {
               return false
             } else {
@@ -47,8 +41,7 @@ const mainReducer = (state = initialState, action) => {
           //     ...state.cart.content.slice(0, action.payload),
           //     ...state.cart.content.slice(action.payload + 1),
           //   ],
-        },
-      }
+        }
 
     default:
       // finiamo qui dentro se l'action.type non corrisponde a nessuno dei case stabiliti precedentemente
@@ -57,4 +50,4 @@ const mainReducer = (state = initialState, action) => {
   }
 }
 
-export default mainReducer
+export default favReducer

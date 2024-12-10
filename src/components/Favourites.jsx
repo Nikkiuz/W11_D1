@@ -6,7 +6,7 @@ const Favourites = () => {
 
   // cardArray sarà l'array di libri nel carrello in Redux
   const favArray = useSelector((reduxState) => {
-    return reduxState.companies.content
+    return reduxState.favourites.content
   })
 
   // otteniamo la funzione di dispatch

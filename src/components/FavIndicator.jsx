@@ -9,7 +9,7 @@ const FavIndicator = () => {
   const favArray = useSelector((reduxState) => {
     // reduxState è l'intero oggetto di stato contenuto in Redux
     // dovete ritornare la porzione che vi interessa
-    return reduxState.companies.content // []
+    return reduxState.favourites.content // []
   })
 
   return (

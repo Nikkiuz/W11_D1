@@ -1,6 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit'
-import mainReducer from '../reducers'
-// poichè il file dentro la cartella reducers si chiama "index.js" non è necessario specificarlo alla riga 2
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import favReducer from '../reducers/favReducer'
+import jobReducer from '../reducers/jobReducer'
+
+const mainReducer = combineReducers({
+  favourites: favReducer,
+  jobs: jobReducer,
+})
 
 const myReduxStore = configureStore({
   reducer: mainReducer,
