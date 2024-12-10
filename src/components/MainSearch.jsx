@@ -28,6 +28,7 @@ const MainSearch = () => {
     if (query) {
       dispatch(getJobsAction(query))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query])
 
   console.log(searchResult)
